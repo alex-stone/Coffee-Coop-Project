@@ -34,7 +34,19 @@ class Session < ActiveRecord::Base
   end
 
   def self.create_from_hash(hash, user=nil)
-    user ||= User.create_from_hash(hash)
-    Session.create(:user_id => user.id, :uid => hash['uid'], :provider => hash['provider'])
+    user = User.find_from_hash(hash)
+  
+    if user
+      #User exists with different signin information
+      session = Session.create(:user_id => user.id, :uid => hash['uid'], :provider => hash['provider'])
+      user.sessions << session
+      user.save!
+    else
+      user ||= User.create_from_hash(hash)
+      session = Session.create(:user_id => user.id, :uid => hash['uid'], :provider => hash['provider'])
+      user.sessions << session
+      user.save!
+    end
+    return session
   end
 end
