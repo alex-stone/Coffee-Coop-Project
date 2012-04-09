@@ -3,7 +3,10 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px; 
+  padding: 0px;
+  margin:0px;
+}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -26,6 +29,10 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px; } }
+
+#content {
+  padding: 0px 0px 0px 20px;
+}
 
 #notice {
   color: green; }
