@@ -2,7 +2,8 @@ require 'openid/store/filesystem'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   #Providers with id/secret
-  provider :facebook, '351106278258469', '2eba6f20d6e24bb5016fae79892c0c8f'
+  provider :facebook, '351106278258469', '2eba6f20d6e24bb5016fae79892c0c8f', 
+    {:client_options => {:ssl => {:ca_path => "/etc/pki/tls/certs/ca-bundle.crt"}}}
   provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
 
   # Generic Openid
