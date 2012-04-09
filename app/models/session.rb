@@ -12,12 +12,12 @@ class Session < ActiveRecord::Base
   def self.create_authhash(hash, service_route)
     new_hash = Hash.new
   
-    if service == 'facebook'
+    if service_route == 'facebook'
       hash['extra']['user_hash']['email'] ? new_hash[:email] =  hash['extra']['user_hash']['email'] : new_hash[:email] = ''
       hash['extra']['user_hash']['name'] ? new_hash[:name] =  hash['extra']['user_hash']['name'] : new_hash[:name] = ''
       hash['extra']['user_hash']['id'] ?  new_hash[:uid] =  hash['extra']['user_hash']['id'].to_s : new_hash[:uid] = ''
       hash['provider'] ? new_hash[:provider] = hash['provider'] : new_hash[:provider] = ''
-    elsif service == 'github'
+    elsif service_route == 'github'
       hash['info']['email'] ? new_hash[:email] =  hash['info']['email'] : new_hash[:email] = ''
       hash['info']['name'] ? new_hash[:name] =  hash['info']['name'] : new_hash[:name] = ''
       hash['extra']['user_hash']['id'] ? new_hash[:uid] =  hash['extra']['user_hash']['id'].to_s : new_hash[:uid] = ''
