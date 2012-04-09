@@ -32,36 +32,39 @@ class SessionsController < ApplicationController
       return
     end
 
-    @sess = Session.find_from_hash(@authhash)
-    
+    @sess = Session.find_by_provider_and_uid(@authhash[:provider], @authhash[:uid])
+
+    logger.debug("Session = #{@sess}")
+
     # If logged in, add session provider if id doesn't already exist
     # If not logged in, and session exists, log user in
     # If session does not exist create a new user and session
     if user_signed_in?
       if @sess
         flash[:notice] = "Your account at #{@sess.provider.capitalize} is already connected"
-        redirect_to sessions_path
+        redirect_to users_path
       else
         flash[:notice] = "Successfully added #{@authhash['provider']} authentication"
         current_user.sessions.create(:provider => @authhash['provider'], :uid => @authhash['uid'])
-        redirect_to sessions_path
+        redirect_to users_path
       end
     elsif @sess
       flash[:notice] = "Signed in successfully via #{@authhash[:provider].capitalize} + '.'"
       session[:user_id] = @sess.user.id
       session[:session_id] = @sess.id
+      redirect_to users_path
     else
       # Check for old user, logging in with new service
-      @olduser = User.find_from_hash(@authhash)
-      
+      @olduser = User.find_by_name_and_email(@authhash[:name], @authhash[:email])
+
       if !@olduser.nil?
         @olduser.sessions.build(:provider => @authhash[:provider], :uid => @authhash[:uid], :uname => @authhash[:uname], :uemail => @authhash[:email])
         @user = @olduser
         user_existed = true
       else
-        @newuser ||= User.create_from_hash(@authhash)
-        @newuser.sessions.build(:provider => @authhash[:provider], :uid => @authhash[:uid], :uname => @authhash[:uname], :uemail => @authhash[:email])
-        @user = @newuser
+        @user = User.create!(:name => @authhash[:name], :email => @authhash[:email])
+        @user.sessions.build(:provider => @authhash[:provider], :uid => @authhash[:uid], :uname => @authhash[:name], :uemail => @authhash[:email])
+        
         user_existed = false 
       end
       if @user.save!

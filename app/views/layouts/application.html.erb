@@ -11,8 +11,8 @@
     <nav id="nav_bar">
       <ul>
         <li id="logo">Coffee Tracker</li>
-        <li id="Home"><%=link_to "Users", users_path, :class => "usersnav"%></li>
-        <li id="Transactions"><%= link_to "Transactions", transactions_path, :class => "transactionsnav"%></li>
+        <li id="tab"><%=link_to "Users", users_path, :class => "usersnav"%></li>
+        <li id="tab"><%= link_to "Transactions", transactions_path, :class => "transactionsnav"%></li>
       </ul>
       <ul id="user_info">
         <% if user_signed_in? %>

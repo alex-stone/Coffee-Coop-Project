@@ -65,8 +65,15 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    if current_user.is_admin? 
+      new_role = params[:user][:role]
+      @user.role = new_role
+      @user.save!
+    end
+    hash = {:name => params[:user][:name], :email => params[:user][:email]}
+
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(hash)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

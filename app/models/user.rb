@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email
  
   def self.find_from_hash(hash)
-    User.find_by_name_and_email(hash['name'], hash['email'])
+    find_by_name_and_email(hash['name'], hash['email'])
   end
 
   def self.create_from_hash(hash)
-    create(:name => hash['name'], :email => hash['email'])
+    create!(:name => hash['name'], :email => hash['email'])
   end
 
   def is_admin?
