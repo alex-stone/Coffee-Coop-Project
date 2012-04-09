@@ -1,33 +1,34 @@
-%h1 Transactions
+%div.span
+  %h1 Transactions
 
-%table{:class => 'table table-bordered table-striped table-condensed'}
-  %tr
-    %th Receipt # 
-    %th Producer
-    %th Code
-    %th Date
-    %th Time
-    %th Center
-    %th Price
-    %th Comments
-    %th Received by
-    %th
-
-  - @transactions.each do |transaction|
+  %table{:class => 'table table-bordered table-striped table-condensed'}
     %tr
-      %td= "%04d" % transaction.id
-      %td= transaction.producer
-      %td= transaction.code
-      %td= transaction.date.strftime("%d/%m/%y")
-      %td= transaction.date.strftime("%l:%M %p")
-      %td= transaction.center
-      %td= transaction.price
-      %td= transaction.comments
-      %td= transaction.received_by
-      %td
-        = link_to 'Show', transaction, :class => 'btn btn-small'
-        - if @can_edit
-          = link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
-          = link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-delete'
+      %th Receipt # 
+      %th Producer
+      %th Code
+      %th Date
+      %th Time
+      %th Center
+      %th Price
+      %th Comments
+      %th Received by
+      %th Options
 
-= link_to 'New Transaction', new_transaction_path, :class => 'btn btn-new'
+    - @transactions.each do |transaction|
+      %tr
+        %td= "%04d" % transaction.id
+        %td= transaction.producer
+        %td= transaction.code
+        %td= transaction.date.strftime("%d/%m/%y")
+        %td= transaction.date.strftime("%l:%M %p")
+        %td= transaction.center
+        %td= transaction.price
+        %td= transaction.comments
+        %td= transaction.received_by
+        %td
+          = link_to 'Show', transaction, :class => 'btn btn-small'
+          - if @can_edit
+            = link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
+            = link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-delete'
+
+  = link_to 'New Transaction', new_transaction_path, :class => 'btn btn-new'

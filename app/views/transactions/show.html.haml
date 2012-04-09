@@ -1,78 +1,82 @@
-%p#notice= notice
+%h1 Transaction ##{@transaction.id} Info
 
-%p
-  %b Producer:
-  = @transaction.producer
-%p
-  %b Code:
-  = @transaction.code
-%p
-  %b Date:
-  = @transaction.date
-%p
-  %b Center:
-  = @transaction.center
-%p
-  %b Lot number:
-  = @transaction.lot_number
-%p
-  %b Sack number:
-  = @transaction.sack_number
-%p
-  %b Gross weight:
-  = @transaction.gross_weight
-%p
-  %b Tare:
-  = @transaction.tare
-%p
-  %b Net weight:
-  = @transaction.net_weight
-%p
-  %b Price:
-  = @transaction.price
-%p
-  %b Comments:
-  = @transaction.comments
-%p
-  %b Delivery form:
-  = @transaction.delivery_form
-%p
-  %b Quality:
-  = @transaction.quality
-%p
-  %b Classes:
-  = @transaction.classes
-%p
-  %b S f:
-  = @transaction.s_f
-%p
-  %b Bitten:
-  = @transaction.bitten
-%p
-  %b Bare:
-  = @transaction.bare
-%p
-  %b Green:
-  = @transaction.green
-%p
-  %b Drill:
-  = @transaction.drill
-%p
-  %b Mold:
-  = @transaction.mold
-%p
-  %b Gqmd:
-  = @transaction.gqmd
-%p
-  %b Total:
-  = @transaction.total
-%p
-  %b Received by:
-  = @transaction.received_by
-%p
-  %b User:
-  = @transaction.user_id
+%div.row 
+  %div.span8
+    %h3 Receipt Info:
+    %table{:class => 'table table-condensed table-bordered'}
+      %tr
+        %th Receipt #
+        %th Producer
+        %th Code
+        %th Center
+        %th Date:
+        %th Time:
+      %tr
+        %td= @transaction.id
+        %td= @transaction.producer
+        %td= @transaction.code
+        %td= @transaction.center
+        %td= @transaction.date.strftime("%d/%m/%y")
+        %td= @transaction.date.strftime("%l:%M %p")
 
-= link_to 'Edit', edit_transaction_path(@transaction)
+%div.row
+  %div.span8
+    %h3 Characteristics:
+    %table{:class => 'table table-condensed table-bordered'}
+      %tr
+        %th Lot #
+        %th Sack #
+        %th Gross Weight
+        %th Tare
+        %th Net Weight
+        %th Quality
+        %th Classes
+      %tr
+        %td= @transaction.lot_number
+        %td= @transaction.sack_number
+        %td= @transaction.gross_weight
+        %td= @transaction.tare
+        %td= @transaction.net_weight
+        %td= @transaction.quality
+        %td= @transaction.classes
+%div.row
+  %div.span8
+    %h3 Quality:
+    %table{:class => 'table table-condensed table-bordered'}
+      %tr
+        %th S/F
+        %th Bitten
+        %th Bare
+        %th Green
+        %th Drill
+        %th Mold
+        %th GQMD
+        %th Total Quality
+      %tr
+        %td= @transaction.s_f
+        %td= @transaction.bitten
+        %td= @transaction.bare
+        %td= @transaction.green
+        %td= @transaction.drill
+        %td= @transaction.mold
+        %td= @transaction.gqmd
+        %td= @transaction.total
+
+%div.row
+  %div.span8
+    %h3 Delivery Info:
+    %table{:class => 'table table-condensed table-bordered'}
+      %tr
+        %th Price
+        %th Delivery Form
+        %th Comments
+        %th Received By
+      %tr
+        %td= @transaction.price
+        %td= @transaction.delivery_form
+        %td= @transaction.comments
+        %td= @transaction.received_by
+
+= link_to 'Edit', edit_transaction_path(@transaction), :class => 'btn btn-edit btn-small'
 \|
-= link_to 'Back', transactions_path
+= link_to 'Back', transactions_path, :class => 'btn btn-small'
