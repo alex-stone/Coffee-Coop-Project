@@ -23,6 +23,15 @@
       </ul>
     </nav>
   </div>
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-block alert-<%= key == :notice ? "success" : key %> fadeout" data-dismiss="alert">
+      <strong><%= key.capitalize %>: </strong>
+      <%= value %>
+      <a class="close">&times;</a>
+    </div>
+  <% end %>
+
   <div class = "container-fluid">
     <div class="row-fluid">
         <%= yield %>

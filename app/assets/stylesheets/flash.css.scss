@@ -1,0 +1,33 @@
+.alert {
+  padding: 10px;
+  margin: 30px 20px 10px 20px;
+  font-size: 15px;
+  font-weight:bold;
+  color: #ffffff;
+  text-transform:capitalize;
+  background-color: #999999;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px
+}
+
+a.close {
+  float: right;
+  font-size: 24px;
+  &:hover {
+    opacity:0.6;
+    text-decoration:none;
+    cursor:pointer;
+  }
+}
+
+.alert-success {
+  background-color: #468847
+}
+.alert-info {
+  background-color: #3a87ad;
+}
+.alert-error {
+  background-color: #b94a48;
+}
+
