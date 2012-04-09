@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
   # To Do: Set up Sorting Functionality
   def index
     @transactions = Transaction.all
+    @can_edit = user_is_admin?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class TransactionsController < ApplicationController
   # To Do: Set up editing, if clerk owns it or if admin
   def show
     @transaction = Transaction.find(params[:id])
+    @can_edit = user_is_admin? 
 
     respond_to do |format|
       format.html # show.html.erb

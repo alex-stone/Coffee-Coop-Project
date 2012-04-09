@@ -2,30 +2,34 @@
 
 %table{:class => 'table table-bordered table-striped table-condensed'}
   %tr
+    %th Receipt # 
     %th Producer
     %th Code
     %th Date
+    %th Time
     %th Center
     %th Price
     %th Comments
     %th Received by
     %th
-    %th
-    %th
 
   - @transactions.each do |transaction|
     %tr
+      %td= "%04d" % transaction.id
       %td= transaction.producer
       %td= transaction.code
-      %td= transaction.date
+      %td= transaction.date.strftime("%d/%m/%y")
+      %td= transaction.date.strftime("%l:%M %p")
       %td= transaction.center
       %td= transaction.price
       %td= transaction.comments
       %td= transaction.received_by
-      %td= link_to 'Show', transaction
-      %td= link_to 'Edit', edit_transaction_path(transaction)
-      %td= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Show', transaction, :class => 'btn btn-small'
+        - if @can_edit
+          = link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
+          = link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-delete'
 
 %br
 
-= link_to 'New Transaction', new_transaction_path
+= link_to 'New Transaction', new_transaction_path, :class => 'btn btn-new'

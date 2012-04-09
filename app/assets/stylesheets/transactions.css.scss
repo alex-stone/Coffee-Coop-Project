@@ -1,3 +1,23 @@
 // Place all the styles related to the Transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+form#new_transaction label { display:block; font-size: 14px; font-weight: bold;}
+form#new_transaction input#transaction_code { width: 170px; }
+form#new_transaction input { width: 80px; }
+
+form#new_transaction select#transaction_date_1i { width: 60px; }
+form#new_transaction select#transaction_date_2i { width: 100px; }
+form#new_transaction select#transaction_date_3i { width: 45px; }
+form#new_transaction select#transaction_date_4i { width: 80px;}
+form#new_transaction select#transaction_date_5i { width: 45px; }
+
+form#new_transaction select#transaction_producer { width: 180px; }
+form#new_transaction select#transaction_code { width: 160px; }
+form#new_transaction select#transaction_center { width: 180px; }
+
+form#new_transaction textarea#transaction_comments { width: 100%; height:160px; }
+
+table tr#transactions th {
+      text-align:center;
+}
