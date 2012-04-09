@@ -25,11 +25,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
   gem 'launchy'
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
