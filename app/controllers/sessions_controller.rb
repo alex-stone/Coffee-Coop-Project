@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create, :signin, :signup, :newaccount, :failure]
+  before_filter :authenticate_user!, :except => [:create, :signin, :failure]
   protect_from_forgery :except => :create
   
   # Get all authentication services assigned to the current user
