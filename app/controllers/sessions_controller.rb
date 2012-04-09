@@ -64,7 +64,7 @@ class SessionsController < ApplicationController
         # Sign in this existing or new user
         # Add user and service ids to session
         session[:user_id] = @user.id
-        session[:service_id] = @user.services.first.id
+        session[:service_id] = @user.services[@user.services.index{|elt| elt[:provider] == @authhash[:provider]}][:id]
        
         user_existed ? flash[:notice] = "Your account has been associated with #{@authhash[:provider].capitalize} ." : flash[:notice] = 'Your account has been created and you have been signed in!'
         redirect_to user_path(@user)
@@ -82,5 +82,23 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def signout
+    if current_user
+      session[:user_id] = nil
+      session[:service_id] = nil
+      session.delete :user_id
+      session.delete :servie_id
+      flash[:notice] = 'You have been signed out'
+    end
+    redirect_to root_url
+  end
+
+  # POST to remove an authentication service
+  def destroy
+    #remove an authentication service linked to the current user
+    @service =current_user.services.find(params[:id])
+    
+    if session[:service_id] == @service.id
+  end
 
 end
