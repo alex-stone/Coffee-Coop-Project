@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @roles = User.get_roles
     unless can_edit?
-      flash [:notice] = "You do not have permissions to edit"
+      flash[:notice] = "You do not have permissions to edit"
       redirect_to users_path
     end
     @is_admin = user_is_admin?
