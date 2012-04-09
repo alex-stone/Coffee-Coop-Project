@@ -1,82 +1,90 @@
-= form_for @transaction do |f|
-  -if @transaction.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@transaction.errors.count, "error")} prohibited this transaction from being saved:"
-      %ul
-        - @transaction.errors.full_messages.each do |msg|
-          %li= msg
+%section#transactions_form
 
-  .field
-    = f.label :producer
-    = f.text_field :producer
-  .field
-    = f.label :code
-    = f.text_field :code
-  .field
-    = f.label :date
-    = f.datetime_select :date
-  .field
-    = f.label :center
-    = f.text_field :center
-  .field
-    = f.label :lot_number
-    = f.number_field :lot_number
-  .field
-    = f.label :sack_number
-    = f.number_field :sack_number
-  .field
-    = f.label :gross_weight
-    = f.number_field :gross_weight
-  .field
-    = f.label :tare
-    = f.number_field :tare
-  .field
-    = f.label :net_weight
-    = f.number_field :net_weight
-  .field
-    = f.label :price
-    = f.number_field :price
-  .field
-    = f.label :comments
-    = f.text_area :comments
-  .field
-    = f.label :delivery_form
-    = f.text_field :delivery_form
-  .field
-    = f.label :quality
-    = f.text_field :quality
-  .field
-    = f.label :classes
-    = f.text_field :classes
-  .field
-    = f.label :s_f
-    = f.number_field :s_f
-  .field
-    = f.label :bitten
-    = f.number_field :bitten
-  .field
-    = f.label :bare
-    = f.number_field :bare
-  .field
-    = f.label :green
-    = f.number_field :green
-  .field
-    = f.label :drill
-    = f.number_field :drill
-  .field
-    = f.label :mold
-    = f.number_field :mold
-  .field
-    = f.label :gqmd
-    = f.number_field :gqmd
-  .field
-    = f.label :total
-    = f.number_field :total
-  .field
-    = f.label :received_by
-    = f.text_field :received_by
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .actions
-    = f.submit 'Save'
+%div.row-fluid
+
+  = form_for @transaction do |f|
+    -if @transaction.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@transaction.errors.count, "error")} prohibited this transaction from being saved:"
+        %ul
+          - @transaction.errors.full_messages.each do |msg|
+            %li= msg
+    
+    %div.span3
+      .field
+        = f.label :producer
+        = f.collection_select :producer, @producers, :id, :name
+      .field
+        = f.label :code
+        = f.text_field :code
+      .field
+        = f.label :center
+        = f.select :center, @centers
+      .field
+        = f.label :date
+        = f.date_select :date
+      .field
+        = f.label :date, 'Time'
+        = f.time_select :date, :ampm => true
+
+    %div.span2
+      .field
+        = f.label :lot_number, 'Lot Number'
+        = f.number_field :lot_number
+      .field
+        = f.label :sack_number, 'Sack Number'
+        = f.number_field :sack_number
+      .field
+        = f.label :gross_weight, 'Gross Weight'
+        = f.number_field :gross_weight
+      .field
+        = f.label :tare
+      = f.number_field :tare
+      .field
+        = f.label :net_weight, 'Net Weight'
+        = f.number_field :net_weight
+      .field
+        = f.label :quality
+        = f.text_field :quality
+      .field
+      = f.label :classes
+      = f.text_field :classes
+    
+    %div.span2
+      .field
+        = f.label :s_f, 'S / F'
+        = f.number_field :s_f
+      .field
+        = f.label :bitten
+        = f.number_field :bitten
+      .field
+        = f.label :bare
+        = f.number_field :bare
+      .field
+        = f.label :green
+        = f.number_field :green
+      .field
+        = f.label :drill
+        = f.number_field :drill
+      .field
+        = f.label :mold
+        = f.number_field :mold
+      .field
+        = f.label :gqmd, 'GQMD'
+        = f.number_field :gqmd
+
+    %div.span3
+      .field
+        = f.label :price
+        = f.number_field :price
+      .field 
+        = f.label :comments
+        = f.text_area :comments
+      .field
+        = f.label :delivery_form
+        = f.select :delivery_form, @delivery_forms
+      .field
+        = f.label :received_by
+        = f.text_field :received_by
+      .actions
+        = f.submit 'Save'
