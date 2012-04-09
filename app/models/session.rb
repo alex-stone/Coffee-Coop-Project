@@ -9,7 +9,7 @@ class Session < ActiveRecord::Base
     find_by_provider_and_uid(hash['provider'], hash['uid'])
   end
 
-  def self.create_authhash(hash, service)
+  def self.create_authhash(hash, service_route)
     new_hash = Hash.new
   
     if service == 'facebook'
