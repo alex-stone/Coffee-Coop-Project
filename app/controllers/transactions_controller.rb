@@ -50,7 +50,7 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     # Method to add Producer to hash to create transaction
-    user = User.find_by_id(params[:transaction][:producer_id])
+    user = User.find_by_id(params[:transaction][:producer])
     hash = Hash.new
     hash = params[:transaction]
     hash[:producer] = user.name
