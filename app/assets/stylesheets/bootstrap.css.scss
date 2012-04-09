@@ -684,6 +684,7 @@ textarea {
 }
 label {
   display: block;
+  font-size: 15px;
   margin-bottom: 5px;
   color: #333333;
 }
@@ -753,6 +754,13 @@ select {
   width: 220px;
   background-color: #ffffff;
 }
+
+select#transaction_date_1i { width:65px; }
+select#transaction_date_2i { width:105px; }
+select#transaction_date_3i { width:45px; }
+select#transaction_date_4i { width:80px; }
+select#transaction_date_5i { width:70px; }
+
 select[multiple], select[size] {
   height: auto;
 }
@@ -762,7 +770,7 @@ input[type="image"] {
   box-shadow: none;
 }
 textarea {
-  height: auto;
+  height: 140px;
 }
 input[type="hidden"] {
   display: none;

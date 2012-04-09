@@ -22,7 +22,7 @@
         = f.select :center, @centers
       .field
         = f.label :date
-        = f.date_select :date
+        = f.date_select :date, :class => 'date'
       .field
         = f.label :date, 'Time'
         = f.time_select :date, :ampm => true
@@ -30,48 +30,49 @@
     %div.span2
       .field
         = f.label :lot_number, 'Lot Number'
-        = f.number_field :lot_number
+        = f.number_field :lot_number, :class => 'input-small'
       .field
         = f.label :sack_number, 'Sack Number'
-        = f.number_field :sack_number
+        = f.number_field :sack_number, :class => 'input-small'
       .field
         = f.label :gross_weight, 'Gross Weight'
-        = f.number_field :gross_weight
+        = f.number_field :gross_weight, :class => 'input-small'
       .field
         = f.label :tare
-      = f.number_field :tare
+        = f.number_field :tare, :class => 'input-small'
       .field
         = f.label :net_weight, 'Net Weight'
-        = f.number_field :net_weight
+        = f.number_field :net_weight, :class => 'input-small'
       .field
         = f.label :quality
-        = f.text_field :quality
+        = f.text_field :quality, :class => 'input-small'
       .field
       = f.label :classes
-      = f.text_field :classes
-    
+      = f.text_field :classes, :class => 'input-small'
+   
+
     %div.span2
       .field
         = f.label :s_f, 'S / F'
-        = f.number_field :s_f
+        = f.number_field :s_f, :class => 'input-small'
       .field
         = f.label :bitten
-        = f.number_field :bitten
+        = f.number_field :bitten, :class => 'input-small'
       .field
         = f.label :bare
-        = f.number_field :bare
+        = f.number_field :bare, :class => 'input-small'
       .field
         = f.label :green
-        = f.number_field :green
+        = f.number_field :green, :class => 'input-small'
       .field
         = f.label :drill
-        = f.number_field :drill
+        = f.number_field :drill, :class => 'input-small'
       .field
         = f.label :mold
-        = f.number_field :mold
+        = f.number_field :mold, :class => 'input-small'
       .field
         = f.label :gqmd, 'GQMD'
-        = f.number_field :gqmd
+        = f.number_field :gqmd, :class => 'input-small'
 
     %div.span3
       .field
