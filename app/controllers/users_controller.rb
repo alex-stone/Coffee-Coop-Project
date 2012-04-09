@@ -47,7 +47,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    hash = {:name => params[:user][:name], :email => params[:user][:email]}
+    @user = User.new(hash)
+    if user_is_admin?
+      @user.role = params[:user][:role]
+    end
 
     respond_to do |format|
       if @user.save
