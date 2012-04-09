@@ -1,5 +1,4 @@
-%p#notice= notice
-
+%h1 User ##{@user.id}
 %p
   %b Name:
   = @user.name
@@ -10,6 +9,6 @@
   %b Role:
   = @user.role
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+- if @can_edit
+  = link_to 'Edit', edit_user_path(@user), :class => 'btn btn-edit'
+= link_to 'Back', users_path, :class => 'btn'

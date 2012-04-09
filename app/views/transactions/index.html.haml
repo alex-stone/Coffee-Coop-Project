@@ -29,6 +29,5 @@
           = link_to 'Show', transaction, :class => 'btn btn-small'
           - if @can_edit
             = link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
-            = link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-small btn-delete'
 
   = link_to 'New Transaction', new_transaction_path, :class => 'btn btn-new'

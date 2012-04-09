@@ -76,7 +76,6 @@
         %td= @transaction.delivery_form
         %td= @transaction.comments
         %td= @transaction.received_by
-
-= link_to 'Edit', edit_transaction_path(@transaction), :class => 'btn btn-edit btn-small'
-\|
-= link_to 'Back', transactions_path, :class => 'btn btn-small'
+- if @can_edit
+  = link_to 'Edit', edit_transaction_path(@transaction), :class => 'btn btn-edit'
+= link_to 'Back', transactions_path, :class => 'btn'

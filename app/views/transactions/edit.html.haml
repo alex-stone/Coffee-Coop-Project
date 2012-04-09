@@ -2,6 +2,7 @@
 
 = render 'form'
 
-= link_to 'Show', @transaction
-\|
-= link_to 'Back', transactions_path
+= link_to 'Show', @transaction, :class => 'btn '
+= link_to 'Back', transactions_path, :class => 'btn'
+- if @can_destroy
+  = link_to 'Destroy', transaction_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-delete'

@@ -1,23 +1,23 @@
-%h1 Users
+%div.span
+  %h1 Users
 
-%table{:class => 'table table-bordered table-striped table-condensed'}
-  %tr
-    %th Name
-    %th Email
-    %th Role
-    %th
-
-  - @users.each do |user|
+  %table{:class => 'table table-bordered table-striped table-condensed'}
     %tr
-      %td= user.name
-      %td= user.email
-      %td= user.role
-      %td
-        = link_to 'Show', user, :class => 'btn btn-small'
-        - if @is_admin
-          = link_to 'Edit', edit_user_path(user), :class => 'btn btn-edit btn-small'
-          = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-delete btn-small'
+      %th Name
+      %th Email
+      %th Role
+      %th Options
+
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= user.role
+        %td
+          = link_to 'Show', user, :class => 'btn btn-small'
+          - if @is_admin
+            = link_to 'Edit', edit_user_path(user), :class => 'btn btn-edit btn-small'
 
 
-- if @is_admin
-  =link_to 'New User', new_user_path, :class => 'btn btn-new'
+  - if @is_admin
+    =link_to 'New User', new_user_path, :class => 'btn btn-new'

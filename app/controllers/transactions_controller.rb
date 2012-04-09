@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   # To Do: Set up Sorting Functionality
   def index
     @transactions = Transaction.all
-    @can_edit = user_is_admin?
+    @can_edit = user_is_admin?  # In case we want to set up so certain non-admins can edit
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,6 +45,7 @@ class TransactionsController < ApplicationController
     @producers = User.find_all_by_role('producer')
     @centers = Transaction.get_centers
     @delivery_forms = Transaction.get_delivery_forms
+    @can_destroy = user_is_admin?
 
   end
 
