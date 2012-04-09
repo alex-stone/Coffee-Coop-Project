@@ -21,10 +21,13 @@ gem 'thin', :group => :production
 
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3' 
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'launchy'
 end
 
 
