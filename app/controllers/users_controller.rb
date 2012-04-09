@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_admin!, :only => [:new, :create]
+
   def index
     @users = User.all
+    @is_admin = user_is_admin?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,10 +12,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @is_admin = user_is_admin?
+    @can_edit = can_edit?
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,10 +23,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
+    @roles = User.get_roles
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,9 +33,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @roles = User.get_roles
+    unless can_edit?
+      flash [:notice] = "You do not have permissions to edit"
+      redirect_to users_path
+    end
+    @is_admin = user_is_admin?
+
   end
 
   # POST /users
@@ -80,4 +87,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+    def can_edit?
+      unless current_user.nil?
+        return current_user.is_admin? || current_user == @user
+      end
+      return false
+    end
 end
