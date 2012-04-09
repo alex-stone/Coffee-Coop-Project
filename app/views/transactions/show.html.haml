@@ -1,0 +1,78 @@
+%p#notice= notice
+
+%p
+  %b Producer:
+  = @transaction.producer
+%p
+  %b Code:
+  = @transaction.code
+%p
+  %b Date:
+  = @transaction.date
+%p
+  %b Center:
+  = @transaction.center
+%p
+  %b Lot number:
+  = @transaction.lot_number
+%p
+  %b Sack number:
+  = @transaction.sack_number
+%p
+  %b Gross weight:
+  = @transaction.gross_weight
+%p
+  %b Tare:
+  = @transaction.tare
+%p
+  %b Net weight:
+  = @transaction.net_weight
+%p
+  %b Price:
+  = @transaction.price
+%p
+  %b Comments:
+  = @transaction.comments
+%p
+  %b Delivery form:
+  = @transaction.delivery_form
+%p
+  %b Quality:
+  = @transaction.quality
+%p
+  %b Classes:
+  = @transaction.classes
+%p
+  %b S f:
+  = @transaction.s_f
+%p
+  %b Bitten:
+  = @transaction.bitten
+%p
+  %b Bare:
+  = @transaction.bare
+%p
+  %b Green:
+  = @transaction.green
+%p
+  %b Drill:
+  = @transaction.drill
+%p
+  %b Mold:
+  = @transaction.mold
+%p
+  %b Gqmd:
+  = @transaction.gqmd
+%p
+  %b Total:
+  = @transaction.total
+%p
+  %b Received by:
+  = @transaction.received_by
+%p
+  %b User:
+  = @transaction.user_id
+
+= link_to 'Edit', edit_transaction_path(@transaction)
+\|
+= link_to 'Back', transactions_path

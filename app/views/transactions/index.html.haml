@@ -1,0 +1,65 @@
+%h1 Listing transactions
+
+%table
+  %tr
+    %th Producer
+    %th Code
+    %th Date
+    %th Center
+    %th Lot number
+    %th Sack number
+    %th Gross weight
+    %th Tare
+    %th Net weight
+    %th Price
+    %th Comments
+    %th Delivery form
+    %th Quality
+    %th Classes
+    %th S f
+    %th Bitten
+    %th Bare
+    %th Green
+    %th Drill
+    %th Mold
+    %th Gqmd
+    %th Total
+    %th Received by
+    %th User
+    %th
+    %th
+    %th
+
+  - @transactions.each do |transaction|
+    %tr
+      %td= transaction.producer
+      %td= transaction.code
+      %td= transaction.date
+      %td= transaction.center
+      %td= transaction.lot_number
+      %td= transaction.sack_number
+      %td= transaction.gross_weight
+      %td= transaction.tare
+      %td= transaction.net_weight
+      %td= transaction.price
+      %td= transaction.comments
+      %td= transaction.delivery_form
+      %td= transaction.quality
+      %td= transaction.classes
+      %td= transaction.s_f
+      %td= transaction.bitten
+      %td= transaction.bare
+      %td= transaction.green
+      %td= transaction.drill
+      %td= transaction.mold
+      %td= transaction.gqmd
+      %td= transaction.total
+      %td= transaction.received_by
+      %td= transaction.user_id
+      %td= link_to 'Show', transaction
+      %td= link_to 'Edit', edit_transaction_path(transaction)
+      %td= link_to 'Destroy', transaction, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Transaction', new_transaction_path
