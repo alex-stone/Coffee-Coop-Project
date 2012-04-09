@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
-  # GET /transactions
-  # GET /transactions.json
+  
+  # Display Table of Transactions
+  # To Do: Set up Sorting Functionality
   def index
     @transactions = Transaction.all
 
@@ -10,8 +11,8 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # GET /transactions/1
-  # GET /transactions/1.json
+  # Display Details for a Transaction
+  # To Do: Set up editing, if clerk owns it or if admin
   def show
     @transaction = Transaction.find(params[:id])
 
@@ -21,10 +22,14 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # GET /transactions/new
-  # GET /transactions/new.json
+  # New Transaction
+  # To Do: Restrict lists of producers by Cooperative
+  # Maybe instead of New Transaction button, have drop down for New Transaction for a specific Cooperative
   def new
     @transaction = Transaction.new
+    @producers = User.find_all_by_role('producer')
+    @centers = Transaction.get_centers
+    @delivery_forms = Transaction.get_delivery_forms
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +40,24 @@ class TransactionsController < ApplicationController
   # GET /transactions/1/edit
   def edit
     @transaction = Transaction.find(params[:id])
+    @producers = User.find_all_by_role('producer')
+    @centers = Transaction.get_centers
+    @delivery_forms = Transaction.get_delivery_forms
+
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(params[:transaction])
+    # Method to add Producer to hash to create transaction
+    user = User.find_by_id(params[:transaction][:producer_id])
+    hash = Hash.new
+    hash = params[:transaction]
+    hash[:producer] = user.name
+    @transaction = user.transactions.build(hash)
+    @transaction.save!
+    user.save!
+  
 
     respond_to do |format|
       if @transaction.save
