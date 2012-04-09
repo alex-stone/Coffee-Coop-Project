@@ -16,7 +16,8 @@ CoffeeCoopProject::Application.routes.draw do
       get 'failure'
     end
   end
-
+  
+  match '/' => 'users#index'
   root :to => 'users#index'
 
 end
