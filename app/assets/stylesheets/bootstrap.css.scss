@@ -590,8 +590,12 @@ table {
   -moz-border-radius: 0 0 4px 0;
   border-radius: 0 0 4px 0;
 }
+
 .table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
+}
+.table-striped tbody tr:nth-child(odd):hover td {
+  background-color: #D0D0D0;
 }
 table .span1 {
   float: none;
@@ -653,6 +657,24 @@ table .span12 {
   width: 924px;
   margin-left: 0;
 }
+
+/* Table - Row-linked Styles*/
+
+.row-linked tr.hover{
+  background-color: #D0D0D0;
+  cursor: pointer;
+}
+.row-linked td a {
+  color: #333333;
+  &:hover {
+    background-color: #D0D0D0;
+  }
+}
+
+.row-linked td tr a:hover {
+  background-color:white;
+}
+
 form {
   margin: 0 0 24px;
 }

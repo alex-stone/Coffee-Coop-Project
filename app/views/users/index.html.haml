@@ -1,7 +1,7 @@
 %div.span
   %h1 Users
 
-  %table{:class => 'table table-bordered table-striped table-condensed'}
+  %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
       %th Name
       %th Email
@@ -10,7 +10,7 @@
 
     - @users.each do |user|
       %tr
-        %td= user.name
+        %td= link_to "#{user.name}", user
         %td= user.email
         %td= user.role
         %td
