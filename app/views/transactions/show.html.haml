@@ -2,15 +2,15 @@
 
 %div.row 
   %div.span8
-    %h3 Receipt Info:
+    %h3= t :receipt_info
     %table{:class => 'table table-condensed table-bordered'}
       %tr
-        %th Receipt #
-        %th Producer
-        %th Code
-        %th Center
-        %th Date:
-        %th Time:
+        %th= t :receipt
+        %th= t :producer
+        %th= t :code
+        %th= t :center
+        %th= t :date
+        %th= t :time
       %tr
         %td= @transaction.id
         %td= @transaction.producer
@@ -21,16 +21,16 @@
 
 %div.row
   %div.span8
-    %h3 Characteristics:
+    %h3= t :traits
     %table{:class => 'table table-condensed table-bordered'}
       %tr
-        %th Lot #
-        %th Sack #
-        %th Gross Weight
-        %th Tare
-        %th Net Weight
-        %th Quality
-        %th Classes
+        %th= t :lot
+        %th= t :sack
+        %th= t :gweight
+        %th= t :tare
+        %th= t :nweight
+        %th= t :quality
+        %th= t :classes
       %tr
         %td= @transaction.lot_number
         %td= @transaction.sack_number

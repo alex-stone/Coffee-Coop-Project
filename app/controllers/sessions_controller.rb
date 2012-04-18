@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
     # Checks for existence of hash
     if !(omniauth and params[:provider])
-      flash[:error] = 'Error while authenticating via ' + service_route.capitalize + '. The service did not return valid data.'
+      flash[:error] = t(:omniauth_error, :service => service_route.capitalize)
       redirect_to root_path
       return
     end
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     logger.info("Authhash = #{@authhash}")
 
     if @authhash.nil?
-      flash[:error] = 'Service not recognized'
+      flash[:error] = t(:service_unrecognized)
       redirect_to root_path
       return
     end
@@ -41,15 +41,15 @@ class SessionsController < ApplicationController
     # If session does not exist create a new user and session
     if user_signed_in?
       if @sess
-        flash[:notice] = "Your account at #{@sess.provider.capitalize} is already connected"
+        flash[:notice] = t(:already_connected, :provider => @sess.provider.capitalize)
         redirect_to users_path
       else
-        flash[:notice] = "Successfully added #{@authhash['provider']} authentication"
+        flash[:notice] = t(:auth_success, :provider => @authhash['provider'])
         current_user.sessions.create(:provider => @authhash['provider'], :uid => @authhash['uid'])
         redirect_to users_path
       end
     elsif @sess
-      flash[:notice] = "Signed in successfully via #{@authhash[:provider].capitalize} + '.'"
+      flash[:notice] = t(:sign_in_success, :provider => @authhash[:provider].capitalize)
       session[:user_id] = @sess.user.id
       session[:session_id] = @sess.id
       redirect_to users_path
@@ -73,10 +73,10 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         session[:session_id] = @user.sessions[@user.sessions.index{|elt| elt[:provider] == @authhash[:provider]}][:id]
        
-        user_existed ? flash[:notice] = "Your account has been associated with #{@authhash[:provider].capitalize} ." : flash[:notice] = 'Your account has been created and you have been signed in!'
+        user_existed ? flash[:notice] = t(:account_associated, :provider => @authhash[:provider].capitalize) : flash[:notice] = t(:account_created)
         redirect_to user_path(@user)
       else
-        flash[:error] = 'There was an error creating you account'
+        flash[:error] = t(:account_creation_error)
         redirect_to root_url
       end
     end
@@ -84,7 +84,7 @@ class SessionsController < ApplicationController
 
   # Callback: Failure
   def failure
-    flash[:error] = 'There was an error at the remote authentication service'
+    flash[:error] = t(:remote_auth_error)
     redirect_to root_url
   end
 
@@ -94,7 +94,7 @@ class SessionsController < ApplicationController
       session[:session_id] = nil
       session.delete :user_id
       session.delete :servie_id
-      flash[:notice] = 'You have been signed out'
+      flash[:notice] = t(:signed_out)
     end
     redirect_to root_url
   end
@@ -105,7 +105,7 @@ class SessionsController < ApplicationController
     @service = current_user.sessions.find(params[:id])
     
     if session[:session_id] == @service.id
-      flash[:error] = 'You are currently signed in with this account!'
+      flash[:error] = t(:already_signed_in)
     else
       @service.destroy
     end
