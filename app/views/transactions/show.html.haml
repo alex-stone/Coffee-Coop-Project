@@ -44,14 +44,14 @@
     %h3 Quality:
     %table{:class => 'table table-condensed table-bordered'}
       %tr
-        %th S/F
-        %th Bitten
-        %th Bare
-        %th Green
-        %th Drill
-        %th Mold
-        %th GQMD
-        %th Total Quality
+        %th= t :s_f
+        %th= t :bitten
+        %th= t :bare
+        %th= t :green
+        %th= t :drill
+        %th= t :mold
+        %th= t :gqmd
+        %th= t :total_quality
       %tr
         %td= @transaction.s_f
         %td= @transaction.bitten

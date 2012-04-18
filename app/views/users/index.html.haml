@@ -1,12 +1,12 @@
 %div.span
-  %h1 Users
+  %h1= t :users
 
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
-      %th Name
-      %th Email
-      %th Role
-      %th Options
+      %th= t :name
+      %th= t :email
+      %th= t :role
+      %th= t :options
 
     - @users.each do |user|
       %tr

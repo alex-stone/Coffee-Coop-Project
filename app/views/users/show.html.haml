@@ -1,12 +1,12 @@
 %h1 User ##{@user.id}
 %p
-  %b Name:
+  %b= t :name
   = @user.name
 %p
-  %b Email:
+  %b= t :email
   = @user.email
 %p
-  %b Role:
+  %b= t :role
   = @user.role
 
 - if @can_edit

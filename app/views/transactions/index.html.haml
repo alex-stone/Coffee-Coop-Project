@@ -1,18 +1,18 @@
 %div.span
-  %h1 Transactions
+  %h1= t :transactions
 
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
-      %th Receipt # 
-      %th Producer
-      %th Code
-      %th Date
-      %th Time
-      %th Center
-      %th Price
-      %th Comments
-      %th Received by
-      %th Options
+      %th= t :receipt
+      %th= t :producer
+      %th= t :code
+      %th= t :date
+      %th= t :time
+      %th= t :center
+      %th= t :price
+      %th= t :comments
+      %th= t :received
+      %th= t :options
 
     - @transactions.each do |transaction|
       %tr
