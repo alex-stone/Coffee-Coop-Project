@@ -3,7 +3,13 @@ class TransactionsController < ApplicationController
   # Display Table of Transactions
   # To Do: Set up Sorting Functionality
   def index
-    @transactions = Transaction.all
+    options = Hash.new
+    if(params[:id]) 
+      options[:order] = params[:id]
+    end
+    session[:params] = params
+   
+    @transactions = Transaction.find(:all,options)
     @can_edit = user_is_admin?  # In case we want to set up so certain non-admins can edit
 
     respond_to do |format|

@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   has_many :sessions, :dependent => :destroy
   has_many :transactions
-  has_one :lang
 
-  attr_accessible :name, :email, :lang
+  attr_accessible :name, :email
  
   def self.find_from_hash(hash)
     find_by_name_and_email(hash['name'], hash['email'])
