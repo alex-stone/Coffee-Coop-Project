@@ -29,11 +29,10 @@
     <div class="alert alert-block alert-<%= key == :notice ? "success" : key %> fadeout" data-dismiss="alert">
       <strong><%= key.capitalize %>: </strong>
       <%= value %>
-      <a class="close">&times;</a>
     </div>
   <% end %>
   <div class="container-fluid">
-    <div class="row-flud">
+    <div class="row-fluid">
       <%= yield %>
     </div>
   </div>
