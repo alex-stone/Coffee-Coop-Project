@@ -124,7 +124,7 @@ es:
   date: "Fecha"
   time: "Hora"
   traits: "Characteristics:"
-  lot: "Num Lote"
+  lot_number: "Num Lote"
   sack: "Num Saco"
   gweight: "Peso Bruto"
   tare: "Tara"
@@ -141,9 +141,12 @@ es:
   mold: "Moho"
   gqmd: "GQMD"
   price: "Precio"
+  name: "Nombre"
   options: "Opciones"
   users: "Usuarios"
+  user: "Usuario"
   transactions: "Transacciones"
+  transaction: "Transaccion"
   session: "Sesión"
   activerecord:
     attributes:

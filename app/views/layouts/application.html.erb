@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoffeeCoopProject</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+        <link rel="shortcut icon" href"/favicon.ico" />
+          <%= csrf_meta_tags %>
+          </head>
+          <body>
+            <div id="navigation">
+              <nav id="nav_bar">
+                <ul>
+                  <li id="logo"><%=link_to "Coffee Tracker", users_path, :class => "usersnav"%></li>
+                  <li id="tab"><%= link_to "#{t :users}", users_path, :class => "usersnav"%></li>
+                  <li id="tab"><%= link_to "#{t :transactions}", transactions_path, :class => "transactionsnav"%></li>
+                </ul>
+                <ul id="user_info">
+                  <li class="languages" id="imglink"><%=link_to image_tag("uk-flag.png", :size => "32x16"), params.merge(:locale => 'en')%></li>
+                  <li class="languages" id="imglink"><%=link_to image_tag("spain-flag.png", :height=>"16", :width=>"32"), params.merge(:locale => 'es')%></li>
+                  <% if user_signed_in? %>
+                    <%= render :partial => 'layouts/signed_in' %>
+                  <% else %>
+                    <%= render :partial => 'layouts/not_signed_in' %>
+                  <% end %>
+                </ul>
+              </nav>
+            </div>
+
+          <% flash.each do |key, value| %>
+            <div class="alert alert-block alert-<%= key == :notice ? "success" : key %> fadeout" data-dismiss="alert">
+              <strong><%= key.capitalize %>: </strong>
+              <%= value %>
+              <a class="close">&times;</a>
+            </div>
+          <% end %>
+          <div class="container-fluid">
+            <div class="row-flud">
+              <%= yield %>
+            </div>
+          </div>
+    </body>
+</html>
+
+
