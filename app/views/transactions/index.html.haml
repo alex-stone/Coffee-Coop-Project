@@ -7,7 +7,7 @@
       %th= link_to t(:producer), transactions_path(:id => "producer"), :id => "producer_header"
       %th= link_to t(:code), transactions_path(:id => "code"), :id => "code_header"
       %th= link_to t(:date), transactions_path(:id => "date"), :id => "date_header"
-      %th= link_to t(:time), transactions_path(:id => "time"), :id => "time_header"
+      %th= t :time #link_to t(:time), transactions_path(:id => "time"), :id => "time_header"
       %th= link_to t(:center), transactions_path(:id => "center"), :id => "center_header"
       %th= link_to t(:price), transactions_path(:id => "price"), :id => "price_header"
       %th= link_to t(:comments), transactions_path(:id => "comments"), :id => "comments_header"

@@ -119,6 +119,7 @@ es:
   receipt_info: "Información del Recibo"
   receipt: "Recibo"
   producer: "Nombre"
+  role: "Oficio"
   code: "Codigo"
   center: "Centro"
   date: "Fecha"
@@ -176,7 +177,7 @@ es:
         received_by: "Recibido Por"
         name: "Nombre"
         email: "E-Mail"
-        role: "Role"
+        role: "Oficio"
         
         
   

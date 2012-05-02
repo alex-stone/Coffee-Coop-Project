@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function () {
+  $(windows.applicationCache.bind('error', function () {
+    alert('There was an error when loading the cache manifest.');
+  }))
+})
