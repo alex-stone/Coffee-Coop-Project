@@ -3,7 +3,7 @@ CoffeeCoopProject::Application.routes.draw do
   resources :users
 
   #rack-offline path
-  match "/application.manifest" => Rails::Offline
+ # match "/application.manifest" => Rails::Offline
  
   
   # Set up Omniauth paths

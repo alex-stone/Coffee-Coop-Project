@@ -74,6 +74,7 @@ class UsersController < ApplicationController
       @user.role = new_role
       @user.save!
     end
+    
     hash = {:name => params[:user][:name], :email => params[:user][:email]}
 
     respond_to do |format|
