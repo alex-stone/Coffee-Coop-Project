@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :sessions, :dependent => :destroy
   has_many :transactions
+  has_one :cooperative
+  has_one :center
 
   attr_accessible :name, :email
  

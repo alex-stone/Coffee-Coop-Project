@@ -1,4 +1,8 @@
 CoffeeCoopProject::Application.routes.draw do
+  resources :centers
+
+  resources :cooperatives
+
   resources :transactions
   resources :users
 
