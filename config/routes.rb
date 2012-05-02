@@ -11,7 +11,7 @@ CoffeeCoopProject::Application.routes.draw do
       cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
     end
     
-    Dir["#{Rails.root}/app/assets/stylesheets/*"].each do |file|
+    Dir["#{Rails.root}/app/assets/stylesheets/*.css"].each do |file|
       app = Pathname.new("#{Rails.root}/app/assets/stylesheets")
       cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
     end
