@@ -12,8 +12,9 @@
   .field
     = f.label :email
     = f.text_field :email
-  .field
-    = f.label :role
-    = f.select :role, @roles
+  - if @is_admin
+    .field
+      = f.label :role
+      = f.select :role, @roles
   .actions
     = f.submit 'Save'
