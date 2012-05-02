@@ -4,20 +4,21 @@ CoffeeCoopProject::Application.routes.draw do
 
   #rack-offline path
   offline = Rack::Offline.configure do
+    cache "index"
     
     Dir["#{Rails.root}/app/assets/javascripts/*"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets")
-      cache Pathname.new(file).relative_path_from(app)
+      app = Pathname.new("#{Rails.root}/app/assets/javascripts")
+      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
     end
     
     Dir["#{Rails.root}/app/assets/stylesheets/*"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets")
-      cache Pathname.new(file).relative_path_from(app)
+      app = Pathname.new("#{Rails.root}/app/assets/stylesheets")
+      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
     end
     
     Dir["#{Rails.root}/app/assets/images/*"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets")
-      cache Pathname.new(file).relative_path_from(app)
+      app = Pathname.new("#{Rails.root}/app/assets/images")
+      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
     end
     
     files = Dir["#{Rails.root}/**/*.html"]
