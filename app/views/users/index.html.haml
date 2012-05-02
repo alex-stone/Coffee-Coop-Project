@@ -1,6 +1,6 @@
 %div.span
   %h1= t :users
-
+  
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
       %th= t :name
@@ -14,10 +14,10 @@
         %td= user.email
         %td= user.role
         %td
-          = link_to 'Show', user, :class => 'btn btn-small'
+          = link_to t(:show), user, :class => 'btn btn-small'
           - if @is_admin
-            = link_to 'Edit', edit_user_path(user), :class => 'btn btn-edit btn-small'
+            = link_to t(:edit), edit_user_path(user), :class => 'btn btn-edit btn-small'
 
 
   - if @is_admin
-    =link_to 'New User', new_user_path, :class => 'btn btn-new'
+    =link_to t(:new_user), new_user_path, :class => 'btn btn-new'

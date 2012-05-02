@@ -10,5 +10,5 @@
   = @user.role
 
 - if @can_edit
-  = link_to 'Edit', edit_user_path(@user), :class => 'btn btn-edit'
-= link_to 'Back', users_path, :class => 'btn'
+  = link_to t(:edit), edit_user_path(@user), :class => 'btn btn-edit'
+= link_to t(:back), users_path, :class => 'btn'

@@ -2,7 +2,7 @@
 
 = render 'form'
 
-= link_to 'Show', @user, :class => 'btn'
-= link_to 'Back', users_path, :class => 'btn'
+= link_to t(:show), @user, :class => 'btn'
+= link_to t(:back), users_path, :class => 'btn'
 - if @is_admin
-  = link_to 'Destroy', transaction_path, :confirm => 'Are you sure?', :method => 'delete', :class => 'btn btn-delete'
+  = link_to t(:destroy), transaction_path, :confirm => 'Are you sure?', :method => 'delete', :class => 'btn btn-delete'

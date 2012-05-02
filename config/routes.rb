@@ -3,34 +3,7 @@ CoffeeCoopProject::Application.routes.draw do
   resources :users
 
   #rack-offline path
-  offline = Rack::Offline.configure do
-    cache "index"
-    
-    Dir["#{Rails.root}/app/assets/javascripts/*"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets/javascripts")
-      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
-    end
-    
-    Dir["#{Rails.root}/app/assets/stylesheets/*.css"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets/stylesheets")
-      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
-    end
-    
-    Dir["#{Rails.root}/app/assets/images/*"].each do |file|
-      app = Pathname.new("#{Rails.root}/app/assets/images")
-      cache Pathname.new("/assets").join(Pathname.new(file).relative_path_from(app))
-    end
-    
-    files = Dir["#{Rails.root}/**/*.html"]
-    files.each do |file|
-      public_dir = Pathname.new("#{Rails.root}/public")
-      cache Pathname.new(file).relative_path_from(public_dir)
-    end
-  
-    network "/"
-  end
-
-  match "/application.manifest" => offline 
+  match "/application.manifest" => Rails::Offline
  
   
   # Set up Omniauth paths
