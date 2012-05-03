@@ -24,7 +24,7 @@ describe CentersController do
   # Center. As you add validations to Center, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "MyName"}
   end
   
   # This should return the minimal set of values that should be in the session
