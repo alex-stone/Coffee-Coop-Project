@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%h1 Cooperative ##{@cooperative.id}
+%p Name = #{@cooperative.name}
+
+= link_to 'Edit', edit_cooperative_path(@cooperative)
+\|
+= link_to 'Back', cooperatives_path

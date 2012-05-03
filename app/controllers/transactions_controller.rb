@@ -8,7 +8,10 @@ class TransactionsController < ApplicationController
       options[:order] = params[:id]
     end
     session[:params] = params
-   
+
+    # If there is a :cooperative_id, center_id, or producer_id then filter
+    # the possible options based on that.
+
     @transactions = Transaction.find(:all,options)
     @can_edit = user_is_admin?  # In case we want to set up so certain non-admins can edit
 

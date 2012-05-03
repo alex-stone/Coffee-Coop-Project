@@ -12,8 +12,8 @@
   .field
     = f.label t(:email)
     = f.text_field :email
-  .field
-    - if @is_admin
+  - if @is_admin
+    .field
       = f.label t(:role)
       = f.select :role, @roles
   .actions

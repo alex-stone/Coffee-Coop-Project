@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @roles = User.get_roles
+    @is_admin = user_is_admin?
 
     respond_to do |format|
       format.html # new.html.erb
