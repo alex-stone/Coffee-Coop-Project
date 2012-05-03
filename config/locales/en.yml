@@ -46,6 +46,7 @@ en:
   role: "Role"
   new_user: "New User"
   new_center: "New Center"
+  new_trans: "New Transaction"
   show: "Show"
   back: "Back"
   producer: "Producer"
@@ -69,7 +70,6 @@ en:
   total_quality: "Total Quality"
   s_f: "S/F"
   bitten: "Bitten"
-  new_trans: "New Transaction"
   bare: "Peel"
   green: "Green"
   save: "Save"
@@ -79,8 +79,11 @@ en:
   price: "Price"
   options: "Options"
   users: "Users"
+  comments: "Comments"
   transactions: "Transactions"
   session: "Session"
+  lot_number: "Lot Number"
+  delivery_form: "Delivery Form"
   activerecord:
     attributes:
       transaction:
@@ -178,6 +181,8 @@ es:
   transactions: "Transacciones"
   transaction: "Transaccion"
   session: "Sesión"
+  delivery_form: "Tipo De Recepcion"
+  comments: "Comentarios"
   activerecord:
     attributes:
       transaction:

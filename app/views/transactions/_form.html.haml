@@ -32,16 +32,16 @@
         = f.label t :lot_number
         = f.number_field :lot_number, :class => 'input-small'
       .field
-        = f.label t :sack_number
+        = f.label t :sack
         = f.number_field :sack_number, :class => 'input-small'
       .field
-        = f.label t :gross_weight
+        = f.label t :gweight
         = f.number_field :gross_weight, :class => 'input-small'
       .field
         = f.label t :tare
         = f.number_field :tare, :class => 'input-small'
       .field
-        = f.label t :net_weight
+        = f.label t :nweight
         = f.number_field :net_weight, :class => 'input-small'
       .field
         = f.label t :quality
@@ -85,7 +85,7 @@
         = f.label t :delivery_form
         = f.select :delivery_form, @delivery_forms
       .field
-        = f.label t :received_by
+        = f.label t :received
         = f.text_field :received_by
       .actions
         = f.submit t :save
