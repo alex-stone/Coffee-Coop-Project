@@ -33,8 +33,8 @@
         %td= transaction.comments
         %td= transaction.received_by
         %td
-          = link_to 'Show', transaction, :class => 'btn btn-small'
+          = link_to t(:show), transaction, :class => 'btn btn-small'
           - if @can_edit
-            = link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
+            = link_to t(:edit), edit_transaction_path(transaction), :class => 'btn btn-small btn-edit'
 
-  = link_to 'New Transaction', new_transaction_path, :class => 'btn btn-new'
+  = link_to t(:new_trans), new_transaction_path, :class => 'btn btn-new'
