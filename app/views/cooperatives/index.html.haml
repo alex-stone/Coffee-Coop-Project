@@ -4,10 +4,10 @@
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
       %th= t :cooperative
-      %th
-      %th
-      %th
-      %th
+      %th= t :center
+      %th= t :producer
+      %th= t :transaction
+      %th= t :options
 
     - @cooperatives.each do |cooperative|
       %tr

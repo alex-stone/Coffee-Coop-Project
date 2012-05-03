@@ -12,9 +12,15 @@
             <div id="navigation">
               <nav id="nav_bar">
                 <ul>
+<<<<<<< HEAD
                   <li id="logo"><%=link_to "Coffee Tracker", root_path, :class => "usersnav"%></li>
                   <li id="tab"><%= link_to "Centers", centers_path, :class => "cooperativesnav"%></li>
                   <li id="tab"><%= link_to "Producers", producers_path, :class => "producersnav"%></li>
+=======
+                  <li id="logo"><%=link_to "Coffee Tracker", users_path, :class => "usersnav"%></li>
+                  <li id="tab"><%= link_to "#{t :centers}", centers_path, :class => "cooperativesnav"%></li>
+                  <li id="tab"><%= link_to "#{t :producers}", producers_path, :class => "producersnav"%></li>
+>>>>>>> 633885ed33c359ab7ac983ca2e2a8b96a44956e3
                   <li id="tab"><%= link_to "#{t :users}", users_path, :class => "usersnav"%></li>
                   <li id="tab"><%= link_to "#{t :transactions}", transactions_path, :class => "transactionsnav"%></li>
                 </ul>
