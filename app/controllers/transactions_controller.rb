@@ -34,6 +34,12 @@ class TransactionsController < ApplicationController
       @trans_producer = User.find_by_id(params[:producer_id])
     else
       @has_producer = false
+      if params[:center_id]
+        @has_center = true
+        @trans_center = Center.find_by_id(params[:center_id])
+      else
+        @has_center = false
+      end
     end
 
     respond_to do |format|

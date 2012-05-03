@@ -2,7 +2,10 @@
   - if @has_producer
     %h1 #{@trans_producer.name}'s #{t :transactions}
   - else
-    %h1= t :transactions
+    - if @has_center
+      %h1 #{@trans_center.name}'s #{t :transactions}
+    -else
+      %h1= t :transactions
 
 
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
