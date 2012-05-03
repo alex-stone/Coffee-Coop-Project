@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
     @roles = User.get_roles
     @is_admin = user_is_admin?
+    @is_producer = false 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +38,13 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @roles = User.get_roles
+    @centers = Center.all
     unless can_edit?
       flash[:notice] = t(:error_edit_permissions)
       redirect_to users_path
     end
     @is_admin = user_is_admin?
-
+    @is_producer = @user.is_producer?
   end
 
   # POST /users
@@ -75,7 +77,13 @@ class UsersController < ApplicationController
       @user.role = new_role
       @user.save!
     end
-    
+   
+    if @user.is_producer?
+      center = params[:user][:center]
+      @user.center = center
+      @user.save!
+    end
+
     hash = {:name => params[:user][:name], :email => params[:user][:email]}
 
     respond_to do |format|

@@ -12,6 +12,11 @@
   .field
     = f.label t(:email)
     = f.text_field :email
+  - if @is_producer
+    .field
+      = f.label t(:center)
+      = f.collection_select :center, @centers, :name, :name
+
   - if @is_admin
     .field
       = f.label t(:role)

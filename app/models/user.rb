@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
     (x & ROLES)[0] == ROLES[0]
   end
 
+  def is_producer?
+    x=[]
+    x << self.role
+    (x & ROLES)[0] == ROLES[2]
+  end
+
   def self.get_roles
     return ROLES
   end
