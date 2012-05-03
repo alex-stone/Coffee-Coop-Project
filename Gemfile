@@ -33,6 +33,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'simplecov', :require => false
 end
 
 # Gems used only for assets and not required

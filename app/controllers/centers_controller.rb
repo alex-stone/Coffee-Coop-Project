@@ -46,7 +46,7 @@ class CentersController < ApplicationController
 
     respond_to do |format|
       if @center.save
-        format.html { redirect_to centers_path(params[:cooperative_id]), notice: 'Center was successfully created.' }
+        format.html { redirect_to center_path(@center), notice: 'Center was successfully created.' }
         format.json { render json: @center, status: :created, location: @center }
       else
         format.html { render action: "new" }
