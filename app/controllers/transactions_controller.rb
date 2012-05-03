@@ -8,11 +8,25 @@ class TransactionsController < ApplicationController
       options[:order] = params[:id]
     end
     session[:params] = params
+    conditions = Hash.new
+    if(params[:center_id])
+      @center = Center.find_by_id(params[:center_id])
+      unless @center.nil?
+        conditions[:center] = @center.name
+      end
+    end
+    if(params[:producer_id])
+      @producer = User.find_by_id(params[:producer_id])
+      unless @producer.nil?
+        conditions[:producer] = @producer.name
+      end
+    end
+
 
     # If there is a :cooperative_id, center_id, or producer_id then filter
     # the possible options based on that.
 
-    @transactions = Transaction.find(:all,options)
+    @transactions = Transaction.find(:all,options, :conditions => conditions)
     @can_edit = user_is_admin?  # In case we want to set up so certain non-admins can edit
 
     respond_to do |format|
