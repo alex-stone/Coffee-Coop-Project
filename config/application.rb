@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 #Fix for caching stylesheets/javascript
-ENV["RAILS_ASSET_ID"] = ""
+#ENV["RAILS_ASSET_ID"] = ""
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
