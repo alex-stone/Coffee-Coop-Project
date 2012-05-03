@@ -2,23 +2,6 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  date:
-    formats:
-      default: ! '%Y-%m-%d'
-      long: ! '%B %d, %Y'
-      short: ! '%b %d'
-    order: [:month, :day, :year]
-    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
-    abbr_day_names: [Sun, M, Tu, W, Th, F, Sat]
-    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
-    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-  time:
-      am: am
-      formats:
-        default: ! '%a, %d %b %Y %H:%M:%S %z'
-        long: ! '%B %d, %Y %H:%M'
-        short: ! '%d %b %H:%M'
-      pm: pm
   error_sign_in: "You need to sign in before accessing this page."
   error_admin: "You need to be an Admin to access this page!"
   user_updated: "User was successfully updated."
@@ -74,6 +57,17 @@ en:
   green: "Green"
   save: "Save"
   drill: "Drill"
+  jan: "January"
+  feb: "February"
+  mar: "March"
+  apr: "April"
+  may: "May"
+  jun: "June"
+  jul: "July"
+  aug: "August"
+  sep: "September"
+  oct: "October"
+  dec: "December"
   mold: "Mold"
   gqmd: "GQMD"
   price: "Price"
@@ -151,6 +145,17 @@ es:
   center: "Centro"
   centers: "Centros"
   new_center: "Centro Nuevo"
+  jan: "Enero"
+  feb: "Febrero"
+  mar: "Marzo"
+  apr: "Abril"
+  may: "Mayo"
+  jun: "Junio"
+  jul: "Julio"
+  aug: "Agosto"
+  sep: "Septiembre"
+  oct: "Octubre"
+  dec: "Diciembre"
   edit_center: "Cambiar el Centro"
   date: "Fecha"
   time: "Hora"
