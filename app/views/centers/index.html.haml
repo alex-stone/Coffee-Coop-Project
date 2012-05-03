@@ -3,10 +3,10 @@
 
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr
-      %th Name
-      %th
-      %th
-      %th
+      %th= t(:name)
+      %th= t(:producer)
+      %th= t(:transactions)
+      %th= t(:options)
 
     - @centers.each do |center|
       %tr

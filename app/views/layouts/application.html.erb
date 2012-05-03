@@ -13,8 +13,8 @@
               <nav id="nav_bar">
                 <ul>
                   <li id="logo"><%=link_to "Coffee Tracker", users_path, :class => "usersnav"%></li>
-                  <li id="tab"><%= link_to "Centers", centers_path, :class => "cooperativesnav"%></li>
-                  <li id="tab"><%= link_to "Producers", producers_path, :class => "producersnav"%></li>
+                  <li id="tab"><%= link_to "#{t :centers}", centers_path, :class => "cooperativesnav"%></li>
+                  <li id="tab"><%= link_to "#{t :producers}", producers_path, :class => "producersnav"%></li>
                   <li id="tab"><%= link_to "#{t :users}", users_path, :class => "usersnav"%></li>
                   <li id="tab"><%= link_to "#{t :transactions}", transactions_path, :class => "transactionsnav"%></li>
                 </ul>
