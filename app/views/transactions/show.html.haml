@@ -16,8 +16,8 @@
         %td= @transaction.producer
         %td= @transaction.code
         %td= @transaction.center
-        %td= @transaction.date.strftime("%d/%m/%y")
-        %td= @transaction.date.strftime("%l:%M %p")
+        %td= @transaction.date.strftime("%d/%m/%y") unless @transaction.date.nil?
+        %td= @transaction.date.strftime("%l:%M %p") unless @transaction.date.nil?
 
 %div.row
   %div.span8

@@ -16,7 +16,6 @@ describe "users/new" do
     assert_select "form", :action => users_path, :method => "post" do
       assert_select "input#user_name", :name => "user[name]"
       assert_select "input#user_email", :name => "user[email]"
-      assert_select "input#user_role", :name => "user[role]"
     end
   end
 end

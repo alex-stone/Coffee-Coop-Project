@@ -24,14 +24,16 @@ describe TransactionsController do
   # Transaction. As you add validations to Transaction, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:producer => "MyProducer", :code => 123-2, :center => "MyCenter", :date => "myDate", :lot_number => 1, :sack_number => 2, :gross_weight => 3,
+       :tare => 4, :net_weight => 5, :comments => "MyComments", :delivery_form => "MyDeliveryForm", :price => 6, :quality => 7, :classes => "MyClasses",
+        :s_f => 8, :bitten => 9, :bare => 10, :green => 11, :drill => 12, :mold => 13, :gqmd => 14, :total => 15, :received_by => "MyReceivedBy", :user_id => 16}
   end
   
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # TransactionsController. Be sure to keep this updated too.
   def valid_session
-    {}
+    {:producer => 1 }
   end
 
   describe "GET index" do
