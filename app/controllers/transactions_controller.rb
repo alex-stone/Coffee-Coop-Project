@@ -62,6 +62,7 @@ class TransactionsController < ApplicationController
     user = User.find_by_id(params[:transaction][:producer])
     hash = Hash.new
     hash = params[:transaction]
+    @transaction = Transaction.new
     if user.nil?
       respond_to do |format|
         format.html { render action: "new" }
