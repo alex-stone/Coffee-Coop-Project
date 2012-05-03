@@ -597,6 +597,9 @@ table {
 .table-striped tbody tr:nth-child(odd):hover td {
   background-color: #D0D0D0;
 }
+.table-striped tbody tr:hover td {
+  background-color: #D0D0D0
+}
 table .span1 {
   float: none;
   width: 44px;
