@@ -2,10 +2,10 @@
 
 %table
   %tr
-    %th= :name
-    %th= :email
-    %th= :role
-    %th= :session
+    %th= t :name
+    %th= t :email
+    %th= t :role
+    %th= t :session
     %th
     %th
     %th
@@ -16,10 +16,10 @@
       %td= user.email
       %td= user.role
       %td= user.sessions
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to t(:show), user
+      %td= link_to t(:Edit), edit_user_path(user)
+      %td= link_to t(:destroy), user, :confirm => t(:sure_confirm), :method => :delete
 
 %br
 
-= link_to 'New User', new_user_path
+= link_to t(:new_user), new_user_path

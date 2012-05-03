@@ -1,8 +1,8 @@
-%h1 Editing transaction
+%h1= t(:edit_trans)
 
 = render 'form'
 
-= link_to 'Show', @transaction, :class => 'btn '
-= link_to 'Back', transactions_path, :class => 'btn'
+= link_to t :show, @transaction, :class => 'btn '
+= link_to t :back, transactions_path, :class => 'btn'
 - if @can_destroy
-  = link_to 'Destroy', transaction_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-delete'
+  = link_to t :destroy, transaction_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-delete'

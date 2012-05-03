@@ -12,80 +12,80 @@
     
     %div.span3
       .field
-        = f.label :producer
+        = f.label t :producer
         = f.collection_select :producer, @producers, :id, :name
       .field
-        = f.label :code
+        = f.label t :code
         = f.text_field :code
       .field
-        = f.label :center
+        = f.label t :center
         = f.select :center, @centers
       .field
-        = f.label :date
-        = f.date_select :date, :user_month_names => true, :order => [:month, :day, :year]
+        = f.label t :date
+        = f.date_select :date, :class => 'date', :order => [:month, :day, :year]
       .field
-        = f.label :date, 'Time'
+        = f.label t :time
         = f.time_select :date, :ampm => true
 
     %div.span2
       .field
-        = f.label :lot_number
+        = f.label t :lot_number
         = f.number_field :lot_number, :class => 'input-small'
       .field
-        = f.label :sack_number
+        = f.label t :sack_number
         = f.number_field :sack_number, :class => 'input-small'
       .field
-        = f.label :gross_weight
+        = f.label t :gross_weight
         = f.number_field :gross_weight, :class => 'input-small'
       .field
-        = f.label :tare
+        = f.label t :tare
         = f.number_field :tare, :class => 'input-small'
       .field
-        = f.label :net_weight
+        = f.label t :net_weight
         = f.number_field :net_weight, :class => 'input-small'
       .field
-        = f.label :quality
+        = f.label t :quality
         = f.text_field :quality, :class => 'input-small'
       .field
-      = f.label :classes
+      = f.label t :classes
       = f.text_field :classes, :class => 'input-small'
    
 
     %div.span2
       .field
-        = f.label :s_f, 'S / F'
+        = f.label t :s_f
         = f.number_field :s_f, :class => 'input-small'
       .field
-        = f.label :bitten
+        = f.label t :bitten
         = f.number_field :bitten, :class => 'input-small'
       .field
-        = f.label :bare
+        = f.label t :bare
         = f.number_field :bare, :class => 'input-small'
       .field
-        = f.label :green
+        = f.label t :green
         = f.number_field :green, :class => 'input-small'
       .field
-        = f.label :drill
+        = f.label t :drill
         = f.number_field :drill, :class => 'input-small'
       .field
-        = f.label :mold
+        = f.label t :mold
         = f.number_field :mold, :class => 'input-small'
       .field
-        = f.label :gqmd, 'GQMD'
+        = f.label t :gqmd
         = f.number_field :gqmd, :class => 'input-small'
 
     %div.span3
       .field
-        = f.label :price
+        = f.label t :price
         = f.number_field :price
       .field 
-        = f.label :comments
+        = f.label t :comments
         = f.text_area :comments
       .field
-        = f.label :delivery_form
+        = f.label t :delivery_form
         = f.select :delivery_form, @delivery_forms
       .field
-        = f.label :received_by
+        = f.label t :received_by
         = f.text_field :received_by
       .actions
-        = f.submit 'Save'
+        = f.submit t :save

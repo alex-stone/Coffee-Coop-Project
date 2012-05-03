@@ -17,11 +17,11 @@
         %td= producer.email
         %td= producer.center
         %td
-          = link_to 'Transactions', producer_transactions_path(producer), :class => 'btn btn-small'
-          = link_to 'Show', producer, :class => 'btn btn-small'
+          = link_to t(:transactions), producer_transactions_path(producer), :class => 'btn btn-small'
+          = link_to t(:show), producer, :class => 'btn btn-small'
           - if @is_admin
-            = link_to 'Edit', edit_user_path(producer), :class => 'btn btn-edit btn-small'
+            = link_to t(:edit), edit_user_path(producer), :class => 'btn btn-edit btn-small'
 
 
   - if @is_admin
-    =link_to 'New User', new_user_path, :class => 'btn btn-new'
+    =link_to t(:new_user), new_user_path, :class => 'btn btn-new'
