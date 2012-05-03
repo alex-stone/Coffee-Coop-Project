@@ -42,7 +42,7 @@ CoffeeCoopProject::Application.routes.draw do
   
   match '/:locale' => 'users#index'
   
-  match '/' => 'users#index'
-  root :to => 'users#index'
+  match '/' => 'home#index'
+  root :to => 'home#index'
 
 end
