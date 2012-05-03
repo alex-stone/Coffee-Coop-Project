@@ -1,5 +1,8 @@
 %div.span
-  %h1= t :producers
+  - if @has_center
+    %h1 #{@center.name}'s #{t :producers}
+  - else
+    %h1= t :producers
 
   %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
     %tr

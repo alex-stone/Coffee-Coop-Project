@@ -29,6 +29,13 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.find(:all,options, :conditions => conditions)
     @can_edit = user_is_admin?  # In case we want to set up so certain non-admins can edit
 
+    if params[:producer_id]
+      @has_producer = true
+      @trans_producer = User.find_by_id(params[:producer_id])
+    else
+      @has_producer = false
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
