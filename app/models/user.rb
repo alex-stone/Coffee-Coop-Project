@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :transactions
   has_one :center_id
 
-  attr_accessible :name, :email, :center_id
+  attr_accessible :name, :email, :center
  
   def self.find_from_hash(hash)
     find_by_name_and_email(hash['name'], hash['email'])
