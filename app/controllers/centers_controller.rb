@@ -36,7 +36,7 @@ class CentersController < ApplicationController
   # GET /centers/1/edit
   def edit
     @center = Center.find(params[:id])
-    @is_admin = current_user.is_admin?
+    @is_admin = user_is_admin?
   end
 
   # POST /centers
