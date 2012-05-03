@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120502225554) do
 
   create_table "centers", :force => true do |t|
@@ -26,6 +27,9 @@ ActiveRecord::Schema.define(:version => 20120502225554) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+=======
+ActiveRecord::Schema.define(:version => 20120409003509) do
+>>>>>>> 2b49536cec8efda14ab80d73419bb82a74635d69
 
   create_table "sessions", :force => true do |t|
     t.integer  "user_id"
@@ -70,12 +74,18 @@ ActiveRecord::Schema.define(:version => 20120502225554) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+<<<<<<< HEAD
     t.string   "role",        :default => "guest"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "lang",        :default => "en"
     t.string   "cooperative"
     t.string   "center"
+=======
+    t.string   "role",       :default => "guest"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+>>>>>>> 2b49536cec8efda14ab80d73419bb82a74635d69
   end
 
 end

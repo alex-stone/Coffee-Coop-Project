@@ -62,25 +62,8 @@ describe "transactions/index" do
     assert_select "tr>td", :text => "Producer".to_s, :count => 2
     assert_select "tr>td", :text => "Code".to_s, :count => 2
     assert_select "tr>td", :text => "Center".to_s, :count => 2
-    assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => 3.to_s, :count => 2
-    assert_select "tr>td", :text => 4.to_s, :count => 2
-    assert_select "tr>td", :text => 5.to_s, :count => 2
     assert_select "tr>td", :text => 6.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Delivery Form".to_s, :count => 2
-    assert_select "tr>td", :text => "Quality".to_s, :count => 2
-    assert_select "tr>td", :text => "Classes".to_s, :count => 2
-    assert_select "tr>td", :text => 7.to_s, :count => 2
-    assert_select "tr>td", :text => 8.to_s, :count => 2
-    assert_select "tr>td", :text => 9.to_s, :count => 2
-    assert_select "tr>td", :text => 10.to_s, :count => 2
-    assert_select "tr>td", :text => 11.to_s, :count => 2
-    assert_select "tr>td", :text => 12.to_s, :count => 2
-    assert_select "tr>td", :text => 13.to_s, :count => 2
-    assert_select "tr>td", :text => 14.to_s, :count => 2
     assert_select "tr>td", :text => "Received By".to_s, :count => 2
-    assert_select "tr>td", :text => 15.to_s, :count => 2
   end
 end

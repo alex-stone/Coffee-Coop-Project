@@ -9,6 +9,8 @@ gem 'omniauth-openid'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+# Offline
+gem 'rack-offline', :git => 'git://github.com/wycats/rack-offline.git'
 
 # HAML Helpers
 gem 'haml-rails'

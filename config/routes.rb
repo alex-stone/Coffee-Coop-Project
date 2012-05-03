@@ -1,6 +1,7 @@
 CoffeeCoopProject::Application.routes.draw do
   resources :users
 
+<<<<<<< HEAD
     
   resources :centers do
     resources :producers do
@@ -13,12 +14,20 @@ CoffeeCoopProject::Application.routes.draw do
   end
   resources :transactions
 
+=======
+  #rack-offline path
+ # match "/application.manifest" => Rails::Offline
+ 
+  
+>>>>>>> 2b49536cec8efda14ab80d73419bb82a74635d69
   # Set up Omniauth paths
   match '/auth/:provider/callback' => 'sessions#create'
   match '/auth/failure' => 'sessions#failure'
   
   match '/signin' => 'sessions#signin'
   match '/signout' => 'sessions#signout'
+  
+
   
   scope "/:locale" do
     resources :transactions

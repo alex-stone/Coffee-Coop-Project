@@ -7,14 +7,20 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label t(:name)
     = f.text_field :name
   .field
-    = f.label :email
+    = f.label t(:email)
     = f.text_field :email
+<<<<<<< HEAD
   - if @is_admin
     .field
       = f.label :role
+=======
+  .field
+    - if @is_admin
+      = f.label t(:role)
+>>>>>>> 2b49536cec8efda14ab80d73419bb82a74635d69
       = f.select :role, @roles
   .actions
-    = f.submit 'Save'
+    = f.submit t(:save)

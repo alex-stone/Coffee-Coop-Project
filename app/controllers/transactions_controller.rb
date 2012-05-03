@@ -65,19 +65,26 @@ class TransactionsController < ApplicationController
     user = User.find_by_id(params[:transaction][:producer])
     hash = Hash.new
     hash = params[:transaction]
-    hash[:producer] = user.name
-    @transaction = user.transactions.build(hash)
-    @transaction.save!
-    user.save!
-  
-
-    respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to @transaction, notice: t(:transaction_created) }
-        format.json { render json: @transaction, status: :created, location: @transaction }
-      else
+    if user.nil?
+      respond_to do |format|
         format.html { render action: "new" }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.json { head :no_content, status: :unprocessable_entity }
+      end
+    else
+      hash[:producer] = user.name
+      @transaction = user.transactions.build(hash)
+      @transaction.save!
+      user.save!
+    
+    
+      respond_to do |format|
+        if @transaction.save
+          format.html { redirect_to @transaction, notice: t(:transaction_created) }
+          format.json { render json: @transaction, status: :created, location: @transaction }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

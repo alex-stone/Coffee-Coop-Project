@@ -1,0 +1,12 @@
+.alert {
+  margin-bottom: 30px; margin-top: 30px;
+  padding: 5px; background-color: #dddddd;
+}
+.alert-error {
+  color: #ffffff;
+  background-color: #c81419;
+}
+.alert-success {
+  background-color: #ffff00; 
+  font-weight:bold;
+}

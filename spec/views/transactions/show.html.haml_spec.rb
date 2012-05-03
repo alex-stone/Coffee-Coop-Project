@@ -54,6 +54,5 @@ describe "transactions/show" do
     rendered.should match(/13/)
     rendered.should match(/14/)
     rendered.should match(/Received By/)
-    rendered.should match(/15/)
   end
 end
