@@ -22,7 +22,7 @@
         = f.select :center, @centers
       .field
         = f.label :date
-        = f.date_select :date, :class => 'date', :order => [:month, :day, :year]
+        = f.date_select :date, :user_month_names => true, :order => [:month, :day, :year]
       .field
         = f.label :date, 'Time'
         = f.time_select :date, :ampm => true
