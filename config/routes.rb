@@ -1,10 +1,17 @@
 CoffeeCoopProject::Application.routes.draw do
-  resources :centers
-
-  resources :cooperatives
-
-  resources :transactions
   resources :users
+
+    
+  resources :centers do
+    resources :producers do
+      resources :transactions
+    end
+    resources :transactions
+  end
+  resources :producers do
+    resources :transactions
+  end
+  resources :transactions
 
   # Set up Omniauth paths
   match '/auth/:provider/callback' => 'sessions#create'

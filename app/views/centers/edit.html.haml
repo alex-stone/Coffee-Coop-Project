@@ -1,0 +1,8 @@
+%h1 Editing center
+
+= render 'form'
+
+= link_to 'Show', @center, :class => 'btn'
+= link_to 'Back', centers_path, :class => 'btn btn-edit'
+- if @is_admin
+  = link_to 'Destroy', center_path, :confirm => 'Are you sure?', :method => 'delete', :class => 'btn btn-delete'

@@ -1,0 +1,24 @@
+%div.span
+  %h1= t :producers
+
+  %table{:class => 'table table-bordered table-striped table-condensed row-linked'}
+    %tr
+      %th= t :name
+      %th= t :email
+      %th= t :center
+      %th= t :options
+
+    - @producers.each do |producer|
+      %tr
+        %td= link_to "#{producer.name}", producer
+        %td= producer.email
+        %td= producer.center
+        %td
+          = link_to 'Transactions', producer_transactions_path(producer), :class => 'btn btn-small'
+          = link_to 'Show', producer, :class => 'btn btn-small'
+          - if @is_admin
+            = link_to 'Edit', edit_user_path(producer), :class => 'btn btn-edit btn-small'
+
+
+  - if @is_admin
+    =link_to 'New User', new_user_path, :class => 'btn btn-new'

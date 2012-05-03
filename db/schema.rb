@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424013523) do
+ActiveRecord::Schema.define(:version => 20120502225554) do
+
+  create_table "centers", :force => true do |t|
+    t.string   "name"
+    t.string   "cooperative"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "cooperative_id"
+  end
+
+  create_table "cooperatives", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.integer  "user_id"
@@ -50,15 +64,18 @@ ActiveRecord::Schema.define(:version => 20120424013523) do
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "cooperative"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "role",       :default => "guest"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.string   "lang",       :default => "en"
+    t.string   "role",        :default => "guest"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.string   "lang",        :default => "en"
+    t.string   "cooperative"
+    t.string   "center"
   end
 
 end
