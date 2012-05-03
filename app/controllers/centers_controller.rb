@@ -4,6 +4,7 @@ class CentersController < ApplicationController
   def index
     @centers = Center.all
     @is_admin = user_is_admin?
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @centers }
