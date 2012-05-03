@@ -8,7 +8,7 @@ class Transaction < ActiveRecord::Base
   end
   
   def self.get_delivery_forms
-    [t(:delivery),t(:purchase)]
+    ['Delivery', 'Purchase']
   end
 
 end
