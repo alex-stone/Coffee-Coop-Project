@@ -36,7 +36,7 @@ class CentersController < ApplicationController
   # GET /centers/1/edit
   def edit
     @center = Center.find(params[:id])
-    @is_admin = current_user.is_admin?
+    @is_admin = user_is_admin?
   end
 
   # POST /centers
@@ -46,7 +46,7 @@ class CentersController < ApplicationController
 
     respond_to do |format|
       if @center.save
-        format.html { redirect_to cooperative_centers_path(params[:cooperative_id]), notice: 'Center was successfully created.' }
+        format.html { redirect_to centers_path(params[:cooperative_id]), notice: 'Center was successfully created.' }
         format.json { render json: @center, status: :created, location: @center }
       else
         format.html { render action: "new" }

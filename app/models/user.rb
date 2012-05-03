@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     create!(:name => hash['name'], :email => hash['email'])
   end
 
+  def cent
+    Center.find_by_id(:center_id).name
+  end
+
   def is_admin?
     x = []
     x << self.role
