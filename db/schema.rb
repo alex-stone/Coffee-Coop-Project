@@ -70,12 +70,11 @@ ActiveRecord::Schema.define(:version => 20120502225554) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "role",        :default => "guest"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.string   "lang",        :default => "en"
-    t.string   "cooperative"
-    t.string   "center"
+    t.string   "role",           :default => "guest"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.integer  "cooperative_id"
+    t.integer  "center_id"
   end
 
 end
